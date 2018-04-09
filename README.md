@@ -1,29 +1,28 @@
-# project
+# Token Student
+![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)
 
-a [Sails v1](https://sailsjs.com) application
+Development of an internal project management and speaker platform for students
 
+## Installation
 
-### Links
+ - Clone git repository `https://github.com/Ivachko/TokenStudent.git`
+ - Assemble the project `npm install`
+ - Assemble the project `npm install`
+ - Install sails `npm install -g sails`
+ - Launch the server `sails lift`
 
-+ [Get started](https://sailsjs.com/get-started)
-+ [Sails framework documentation](https://sailsjs.com/documentation)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
+As simple as that !
 
+## Contribution
+Thank you for your interest in this project! 
 
-### Version info
+Once the installed project and your written changes, consider **adding tests** to ensure their integrity.
+Run the tests locally with a `npm test` to make sure you didn't break anything.
 
-This app was originally generated on Mon Apr 09 2018 16:40:19 GMT+0200 (CEST) using Sails v1.0.1.
+Then do a pull request with a description of what your changes are making, a CoreTeam member will review and come back to you if necessary or incorporate your changes into the code.
 
-<!-- Internally, Sails used [`sails-generate@1.15.19`](https://github.com/balderdashy/sails-generate/tree/v1.15.19/lib/core-generators/new). -->
-
-
-This project's boilerplate is based on an expanded seed app provided by the [Sails core team](https://sailsjs.com/about) to make it easier for you to build on top of ready-made features like authentication, enrollment, email verification, and billing.  For more information, [drop us a line](https://sailsjs.com/support).
-
-
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
-
+## Conventions
+ - The code follows [Standard](https://github.com/standard/standard "Standard repo") conventions.
+ - Be sure to write the doc comments and comment on the key points of your code, *in English*.
+ - For commit messages, use a short sentence without capital letters (always in English).
+ - During a PR merge, commits must be squashed with their own commit message.
