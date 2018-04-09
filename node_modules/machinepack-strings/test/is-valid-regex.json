@@ -1,0 +1,33 @@
+{
+  "machine": "is-valid-regex",
+  "expectations": [
+    {
+      "using": {
+        "string": "("
+      },
+      "outcome": "success",
+      "returns": false
+    },
+    {
+      "using": {
+        "string": "a[b"
+      },
+      "outcome": "success",
+      "returns": false
+    },
+    {
+      "using": {
+        "string": "a|b"
+      },
+      "outcome": "success",
+      "returns": true
+    },
+    {
+      "using": {
+        "string": "a(\\w*[123])\\d"
+      },
+      "outcome": "success",
+      "returns": true
+    }
+  ]
+}

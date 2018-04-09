@@ -1,0 +1,9 @@
+{
+  "machine": "uuid",
+  "expectations": [
+    {
+      "using": {},
+      "outcome": "success"
+    }
+  ]
+}
