@@ -31,3 +31,9 @@ Then do a pull request with a description of what your changes are making, a Cor
     - new/ for new func
     - test/ for adding test
     - fix/ for fix a bug
+ - Git branch naming :
+    - bug    - Code changes linked to a known issue.
+    - feat   - New feature.
+    - hotfix - Quick fixes to the codebase.
+    - junk   - Experiments (will never be merged).
+   
