@@ -36,15 +36,6 @@
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     "SAILS_LOCALS": true,
     "io": true,
-    "Cloud": true,
-    "parasails": true,
-    "$": true,
-    "_": true,
-    "bowser": true,
-    "StripeCheckout": true,
-    "Stripe": true,
-    "Vue": true,
-    "VueRouter": true,
     // "moment": true,
     // ...etc.
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -52,10 +43,20 @@
     // Make sure backend globals aren't indadvertently tolerated in our client-side JS:
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     "sails": false,
-    "async": false,
-    "User": false
+    "_": false,
+    "async": false
     // ...and any other backend globals (e.g. `"Organization": false`)
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  },
+
+  "rules": {
+    "no-undef": ["error"]
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // ^^Note: If you've enabled the "no-undef" rule in the top level .eslintrc file, then
+    // the globalIds of Sails models should also be blacklisted above under "globals".
+    // (In this scenario, also note that this override for the "no-undef" rule could
+    // simply be removed, since it'd be redundant.)
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   }
 
 }
