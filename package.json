@@ -13,12 +13,12 @@
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/socket.io-redis": "^5.2.0",
     "@sailshq/lodash": "^3.10.3",
-    "async": "2.0.1"
-  },
-  "devDependencies": {
-    "@sailshq/eslint": "^4.19.3",
+    "async": "2.0.1",
     "mocha": "^5.0.5",
     "standard": "^11.0.1"
+  },
+  "devDependencies": {
+    "@sailshq/eslint": "^4.19.3"
   },
   "standard": {
     "ignore": [
