@@ -1,0 +1,63 @@
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+
+	  <div id="login-page">
+        <div class="container">
+        
+            <form class="form-login" action="/login" method="POST">
+              <h2 class="form-login-heading">connectez-vous</h2>
+              <div class="login-wrap">
+                  <input type="email" name="user[email]" id="user[email]" class="form-control" placeholder="Identifiant" autofocus>
+                  <br>
+                  <input type="password" name="user[password]" id="user[password]" class="form-control" placeholder="Mot de passe">
+                  <label class="checkbox">
+                      <span class="pull-right">
+                          <a data-toggle="modal" href="login.html#myModal"> Mot de passe oublié ?</a>
+      
+                      </span>
+                  </label>
+                  <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SE CONNECTER</button>
+      
+              </div>
+      
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Mot de passe oublié ?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Entrez votre email ci-dessous pour réinitialiser votre mot de passe.</p>
+                                <input type="text" name="user[recoveryMail]" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+      
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Annuler</button>
+                                <button class="btn btn-theme" type="button">Envoyer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal -->
+      
+            </form>	  	
+        
+        </div>
+    </div>
+
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!--BACKSTRETCH-->
+  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+  <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+  <script>
+      $.backstretch("img/login-bg.jpg", {speed: 500});
+  </script>
+
+
