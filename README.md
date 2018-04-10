@@ -5,7 +5,9 @@
 ![Test Coverage](https://api.codeclimate.com/v1/badges/99db463c4e4fdd7bbafe/test_coverage)
 
 Development of an internal project management and speaker platform for students
+## Requirement
 
+ - Node `>=9.6`
 ## Installation
 
  - Clone git repository `https://github.com/Ivachko/TokenStudent.git`
@@ -36,4 +38,3 @@ Then do a pull request with a description of what your changes are making, a Cor
     - feat   - New feature.
     - hotfix - Quick fixes to the codebase.
     - junk   - Experiments (will never be merged).
-   
