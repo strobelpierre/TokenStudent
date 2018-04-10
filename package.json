@@ -16,14 +16,22 @@
     "async": "2.0.1"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3"
+    "@sailshq/eslint": "^4.19.3",
+    "mocha": "^5.0.5",
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "test/lifecycle.test.js",
+      "config/env/production.js",
+      "app.js"
+    ]
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
-    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
-  },
+    "test": "npm run custom-tests && echo 'Done.' ",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && node ./node_modules/mocha/bin/mocha test/lifecycle.test.js test/integration/**/*.test.js && standard && echo"
+  }, 
   "main": "app.js",
   "repository": {
     "type": "git",
