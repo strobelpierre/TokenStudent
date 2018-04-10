@@ -28,7 +28,8 @@
     "ignore": [
       "test/lifecycle.test.js",
       "config/env/production.js",
-      "app.js"
+      "app.js",
+      "assets/"
     ]
   },
   "scripts": {
