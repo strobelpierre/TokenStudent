@@ -1,8 +1,8 @@
 {
-  "name": "backend",
+  "name": "TokenStudent",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.0.1",
+  "description": "Development of an internal project management and speaker platform for students",
   "keywords": [],
   "dependencies": {
     "@sailshq/connect-redis": "^3.2.1",
@@ -37,7 +37,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pierre/backend.git"
+    "url": "git://github.com/Ivachko/TokenStudent"
   },
   "author": "pierre",
   "license": "",
