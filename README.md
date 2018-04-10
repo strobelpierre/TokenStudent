@@ -1,6 +1,6 @@
 # Token Student
 ![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)
-![Build Status](https://travis-ci.org/Ivachko/TokenStudent.svg?branch=master)(https://travis-ci.org/Ivachko/TokenStudent)
+![Build Status](https://travis-ci.org/Ivachko/TokenStudent.svg?branch=master)
 ![Maintainability](https://api.codeclimate.com/v1/badges/99db463c4e4fdd7bbafe/maintainability)
 ![Test Coverage](https://api.codeclimate.com/v1/badges/99db463c4e4fdd7bbafe/test_coverage)
 Development of an internal project management and speaker platform for students
