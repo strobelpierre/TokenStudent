@@ -6,7 +6,7 @@
  */
 const util = require('util')
 const sails = require('sails')
-const User = require('sails').HydrateModel(require('../api/models/User.js'))
+const User = sails.models.user
 module.exports = {
   login: function (req, res) {
     sails.log.debug(util.inspect(req.body.user))
