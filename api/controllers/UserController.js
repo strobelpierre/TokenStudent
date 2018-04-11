@@ -9,6 +9,9 @@ const sails = require('sails')
 const User = sails.models.user
 module.exports = {
   login: function (req, res) {
+    if (req.session.user) {
+      return res.redirect('/')
+    }
     sails.log.debug(util.inspect(req.body.user))
     User.findOne({
       email: req.body.user.email
@@ -16,12 +19,10 @@ module.exports = {
       if (err) {
         return res.serError(err)
       }
-      if (!user) {
+      if (!user || user.password !== req.body.user.password) {
         sails.log.error('No user find')
-        return res.notFound('user')
-      }
-      if (user.password !== req.body.user.password) {
-        return res.notFound('user')
+        req.addFlash('error', 'Wrong email or password')
+        return res.redirect('/login')
       }
       /**
        * Creation de session
