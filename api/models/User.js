@@ -18,6 +18,10 @@ module.exports = {
     teams: {
       collection: 'Team',
       via: 'users'
+    },
+    pool: {
+      collection: 'Project',
+      via: 'intervenants'
     }
   }
 }
