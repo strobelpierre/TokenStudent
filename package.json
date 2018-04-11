@@ -25,7 +25,8 @@
     "sails-hook-orm": "^2.0.0-16",
     "sails-hook-sockets": "^1.4.0",
     "sails-mysql": "^1.0.0",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "util": "^0.10.3"
   },
   "devDependencies": {},
   "standard": {
