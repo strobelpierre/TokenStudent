@@ -6,6 +6,7 @@
  */
 const util = require('util')
 const sails = require('sails')
+const User = require('sails').HydrateModel(require('../api/models/User.js'))
 module.exports = {
   login: function (req, res) {
     sails.log.debug(util.inspect(req.body.user))
@@ -26,7 +27,6 @@ module.exports = {
        * Creation de session
        */
       req.session.user = user.id
-      //res.send(req.session.user)
       return res.view('pages/homepage', user)
     })
   }
