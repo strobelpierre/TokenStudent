@@ -9,6 +9,11 @@
             <form class="form-login" action="/login" method="POST">
               <h2 class="form-login-heading">connectez-vous</h2>
               <div class="login-wrap">
+                    <% flash.get('error').forEach(function (message) { %>
+                        <div style="color:red;">
+                          <%= message %>
+                        </div>
+                    <% }) %>
                   <input type="email" name="user[email]" id="user[email]" class="form-control" placeholder="Identifiant" autofocus>
                   <br>
                   <input type="password" name="user[password]" id="user[password]" class="form-control" placeholder="Mot de passe">

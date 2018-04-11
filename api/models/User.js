@@ -12,7 +12,7 @@ module.exports = {
     firstName: { type: 'string', required: true },
     role: { type: 'string', required: true, isIn: ['Responsable pédagogique', 'Etudiant', 'Intervenant'] },
     email: { type: 'string', required: true },
-    password: { type: 'string', required: true },
+    password: { type: 'string', required: true, encrypt: true },
     avatar: {type: 'string', defaultsTo: 'https://www.tousvoisins.fr/img/avatar-default.png'}
 
   }
