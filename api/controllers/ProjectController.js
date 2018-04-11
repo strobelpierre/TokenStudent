@@ -5,6 +5,8 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+const sails = require('sails')
+const User = sails.models.user
 module.exports = {
 
   viewAllProjects: function (req, res) {
