@@ -4,6 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
+
 const sails = require('sails')
 const User = sails.models.user
 module.exports = {
@@ -21,5 +22,6 @@ module.exports = {
       currrentUser = user
     })
     return res.view('pages/homepage', currrentUser)
+
   }
 }
