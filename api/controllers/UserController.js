@@ -15,7 +15,7 @@ module.exports = {
     sails.log.debug(util.inspect(req.body.user))
     User.findOne({
       email: req.body.user.email
-    }).exec(function afterFind (err, user) {
+    }).decrypt().exec(function afterFind (err, user) {
       if (err) {
         return res.serError(err)
       }
