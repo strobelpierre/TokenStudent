@@ -30,5 +30,10 @@ module.exports = {
       req.session.user = user.id
       return res.redirect('/')
     })
+  },
+
+  logout: function (req, res) {
+    req.session.destroy()
+    return res.redirect('/login')
   }
 }
