@@ -12,6 +12,7 @@ module.exports = {
     description: {type: 'string', required: true},
     beginDate: {type: 'string', columnType: 'datetime', required: true},
     deadline: {type: 'string', columnType: 'datetime', required: true}
+
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
