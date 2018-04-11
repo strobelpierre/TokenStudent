@@ -38,6 +38,25 @@ module.exports = {
     req.session.destroy()
     return res.redirect('/login')
   },
+
+  rgpdValidation: function (req, res) {
+    if (!req.session.user) {
+      return res.redirect('/')
+    }
+
+    User.findOne({
+      id: req.session.user
+    }).decrypt().exec(async function afterFind (err, user) {
+      if (err) {
+        return res.serError(err)
+      }
+
+      await User.update({id: req.session.user}).set({rgpd: '1'})
+
+      return res.redirect('/')
+    })
+  },
+
   fakeUser: function (req, res) {
     /**
       * Gen student
