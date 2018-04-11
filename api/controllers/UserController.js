@@ -28,6 +28,7 @@ module.exports = {
        * Creation de session
        */
       req.session.user = user.id
+
       return res.redirect('/')
     })
   },
