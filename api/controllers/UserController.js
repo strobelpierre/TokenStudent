@@ -8,7 +8,7 @@ const util = require('util')
 const sails = require('sails')
 module.exports = {
   login: function (req, res) {
-    sails.log.debug(util.inspect(req.body.user.email))
+    sails.log.debug(util.inspect(req.body.user))
     User.findOne({
       email: req.body.user.email
     }).exec(function afterFind (err, user) {
@@ -22,7 +22,12 @@ module.exports = {
       if (user.password !== req.body.user.password) {
         return res.notFound('user')
       }
-      return res.json(user)
+      /**
+       * Creation de session
+       */
+      req.session.user = user.id
+      //res.send(req.session.user)
+      return res.view('pages/homepage', user)
     })
   }
 }
