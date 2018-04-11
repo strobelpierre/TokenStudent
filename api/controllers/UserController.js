@@ -7,6 +7,7 @@
 const util = require('util')
 const sails = require('sails')
 const User = sails.models.user
+const faker = require('faker')
 module.exports = {
   login: function (req, res) {
     if (req.session.user) {
@@ -36,5 +37,31 @@ module.exports = {
   logout: function (req, res) {
     req.session.destroy()
     return res.redirect('/login')
+  },
+  fakeUser: function (req, res) {
+    /**
+      * Gen student
+      */
+    var users = []
+    faker.locale = 'fr'
+    for (var i = 0; i < 500; i++) {
+      var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
+      var user = {
+        surname: faker.name.lastName(),
+        firstName: faker.name.firstName(),
+        role: 'Etudiant',
+        email: faker.internet.email(),
+        password: 'epsi1234',
+        avatar: faker.internet.avatar(),
+        grade: grade[Math.floor(Math.random() * grade.length)]
+      }
+      users.push(user)
+    }
+    User.createEach(users).exec(function aftercreate (err) {
+      if (err) {
+        sails.log.error(err)
+      }
+    })
+    return res.json(users)
   }
 }

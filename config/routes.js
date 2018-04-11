@@ -27,7 +27,8 @@ module.exports.routes = {
   'get /login': { view: 'pages/userLogin' },
   'post /login': 'UserController.login',
   'get /logout': 'UserController.logout',
-  'get /projets': 'ProjectController.viewAllProjects'
+  'get /projets': 'ProjectController.viewAllProjects',
+  'get /user/genStudent': 'UserController.fakeUser'
 
   /***************************************************************************
   *                                                                          *
