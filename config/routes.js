@@ -29,7 +29,7 @@ module.exports.routes = {
   'GET /logout': 'UserController.logout',
   'GET /projets': 'ProjectController.viewAllProjects',
   'GET /newProjet': 'ProjectController.newProject',
-  'POST /newProjet': 'ProjectController.createProject'
+  'POST /newProjet': 'ProjectController.createProject',
   'GET /user/genStudent': 'UserController.fakeUser'
 
   /***************************************************************************
