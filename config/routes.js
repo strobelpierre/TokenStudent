@@ -24,11 +24,13 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': 'PageController.home',
-  'get /login': { view: 'pages/userLogin' },
-  'post /login': 'UserController.login',
-  'get /logout': 'UserController.logout',
-  'get /projets': 'ProjectController.viewAllProjects',
-  'get /user/genStudent': 'UserController.fakeUser'
+  'GET /login': { view: 'pages/userLogin' },
+  'POST /login': 'UserController.login',
+  'GET /logout': 'UserController.logout',
+  'GET /projets': 'ProjectController.viewAllProjects',
+  'GET /newProjet': 'ProjectController.newProject',
+  'POST /newProjet': 'ProjectController.createProject',
+  'GET /user/genStudent': 'UserController.fakeUser'
 
   /***************************************************************************
   *                                                                          *
