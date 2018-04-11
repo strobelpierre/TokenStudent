@@ -1,17 +1,20 @@
 /**
- * UserController
+ * PageController
  *
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-const util = require('util')
+
 const sails = require('sails')
 const User = sails.models.user
+const util = require('util')
 module.exports = {
-  login: function (req, res) {
-    sails.log.debug(util.inspect(req.body.user))
+  home: function (req, res) {
+    if (!req.session.user) {
+      return res.redirect('/login')
+    }
     User.findOne({
-      email: req.body.user.email
+      id: req.session.user
     }).exec(function afterFind (err, user) {
       if (err) {
         return res.serError(err)
@@ -20,14 +23,11 @@ module.exports = {
         sails.log.error('No user find')
         return res.notFound('user')
       }
-      if (user.password !== req.body.user.password) {
-        return res.notFound('user')
-      }
       /**
        * Creation de session
        */
-      req.session.user = user.id
-      return res.redirect('/')
+      sails.log.error(util.inspect(user))
+      return res.view('pages/homepage', {user})
     })
   }
 }
