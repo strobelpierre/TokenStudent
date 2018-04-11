@@ -7,7 +7,7 @@
 
 const sails = require('sails')
 const User = sails.models.user
-const Project = sails.models.project
+// const Project = sails.models.project
 const util = require('util')
 module.exports = {
 
@@ -55,7 +55,7 @@ module.exports = {
       /**
        * Vérifiction du rôle
        */
-      if(user.role === 'Responsable pédagogique'){
+      if (user.role === 'Responsable pédagogique') {
         return res.view('pages/newProject', {user})
       } else {
         return res.render('/')
@@ -78,13 +78,14 @@ module.exports = {
       /**
        * Vérifiction du rôle
        */
-      if(user.role === 'Responsable pédagogique'){
+      if (user.role === 'Responsable pédagogique') {
+        /*
         var title = req.body.project.title
         var description = req.body.project.description
         var beginDate = req.body.project.beginDate
         var deadline = req.body.project.deadline
         var intervenants = req.body.project.intervenant
-        
+        */
         return res.view('pages/newProject', {user})
       } else {
         return res.render('/')
