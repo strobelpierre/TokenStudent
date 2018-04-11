@@ -29,20 +29,7 @@ module.exports = {
        */
       req.session.user = user.id
 
-      /**
-       * Vérifiction du rôle
-       */
-      sails.log.info(user.role)
-      switch (user.role) {
-        case 'Responsable pédagogique':
-          return res.view('pages/homeResp', {user})
-        case 'Etudiant':
-          return res.view('pages/homeEtu', {user})
-        case 'Intervenant':
-          return res.view('pages/homeInter', {user})
-        default:
-          return res.render('/')
-      }
+      return res.redirect('/')
     })
   }
 }
