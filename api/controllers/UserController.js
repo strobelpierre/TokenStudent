@@ -27,7 +27,7 @@ module.exports = {
        * Creation de session
        */
       req.session.user = user.id
-      return res.view('pages/homepage', user)
+      return res.redirect('/')
     })
   }
 }
