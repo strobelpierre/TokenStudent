@@ -1,0 +1,17 @@
+.bottom {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.edit{
+    margin-top: 1.25em;
+}
+
+.edit > i{
+    font-size:24px;
+}
+
+p{
+    margin-left: 0 !important;
+}
