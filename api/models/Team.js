@@ -11,6 +11,9 @@ module.exports = {
     users: {
       collection: 'user',
       via: 'teams'
+    },
+    project: {
+      model: 'Project'
     }
   }
 }
