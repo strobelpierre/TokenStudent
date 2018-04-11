@@ -32,17 +32,17 @@ module.exports = {
       /**
        * Vérifiction du rôle
        */
-       sails.log.info(user.role)
+      sails.log.info(user.role)
       switch (user.role) {
         case 'Responsable pédagogique':
           return res.view('pages/homeResp', {user})
-          break;
+          break
         case 'Etudiant':
           return res.view('pages/homeEtu', {user})
-          break;
+          break
         case 'Intervenant':
           return res.view('pages/homeInter', {user})
-          break;
+          break
         default:
           return res.render('/')
       }
