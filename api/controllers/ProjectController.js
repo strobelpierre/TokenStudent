@@ -27,25 +27,23 @@ module.exports = {
        * Vérifiction du rôle
        */
       sails.log.debug(user.role)
-
+      var projects
       switch (user.role) {
         case 'Responsable pédagogique':
-          var projects = await Project.find()
+          projects = await Project.find()
           return res.view('pages/homeResp', {user, projects})
 
         case 'Etudiant':
-          var projects = await Project.find({grade: user.grade})
+          projects = await Project.find({grade: user.grade})
           return res.view('pages/homeEtu', {user, projects})
 
         case 'Intervenant':
-          var projects = []
+          projects = []
           var intervenant = await User.findOne({id: user.id}).populateAll()
-          sails.log.debug(intervenant.pool)
-          intervenant.pool.forEach(function(project){
+          intervenant.pool.forEach(function (project) {
             projects.push(project)
           })
           return res.view('pages/homeInter', {user, projects})
-
 
         default:
           return res.render('/')
@@ -72,7 +70,6 @@ module.exports = {
 
     })
   },
-
   newProject: function (req, res) {
     if (!req.session.user) {
       return res.redirect('/')
@@ -143,7 +140,7 @@ module.exports = {
         var createdProject = await Project.create(project)
 
         var url = '/projet/' + createdProject.id
-        res.redirect(url);
+        res.redirect(url)
       } else {
         return res.render('/')
       }
