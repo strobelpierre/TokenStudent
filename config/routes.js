@@ -31,7 +31,9 @@ module.exports.routes = {
   'GET /newProjet': 'ProjectController.newProject',
   'POST /newProjet': 'ProjectController.createProject',
   'GET /user/genStudent': 'UserController.fakeUser',
-  'GET /rgpdok': 'UserController.rgpdValidation'
+  'GET /rgpdok': 'UserController.rgpdValidation',
+  'GET /project/genProject': 'ProjectController.testproject'
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
