@@ -70,7 +70,7 @@ module.exports = {
     })
   },
   testproject: function (req, res) {
-    var project={
+    var project = {
       title: 't',
       description: 'tt',
       beginDate: '2011-04-20 10:00:00',
@@ -107,7 +107,7 @@ module.exports = {
         */
         sails.log.debug(util.inspect(req.body.project))
         sails.log.debug(util.inspect(req.body.intervenant))
-        var project={
+        var project = {
           title: req.body.project.title,
           description: req.body.project.description,
           beginDate: req.body.project.beginDate,
