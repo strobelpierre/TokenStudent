@@ -25,7 +25,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 control-label">Date de début du projet</label>
                               <div class="col-sm-10">
-                                <div class='input-group date' id='beginDate'>
+                                <div class='input-group date' id='beginDate' >
                                     <input type='text' class="form-control" name="project[beginDate]" id="project[beginDate]" />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -47,30 +47,31 @@
                           <div class="form-group">
                               <label class="col-sm-2 control-label">Classe concernée par le projet</label>
                               <div class="col-sm-10">
-                                <select class="form-control" id="project[classe]">
-                                  <option>B1</option>
-                                  <option>B2</option>
-                                  <option>B3</option>
-                                  <option>I4</option>
-                                  <option>I5</option>
+                                <select class="form-control" name="project[classe]">
+                                  <option value="B1">B1</option>
+                                  <option value="B2">B2</option>
+                                  <option value="B3">B3</option>
+                                  <option value="I4">I4</option>
+                                  <option value="I5">I5</option>
                                 </select>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Intervenants pouvant apporter une aide</label>
                               <div class="col-sm-10">
+                                  <% Intervenants.forEach(function(intervenant){ %>
+
                                 <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" name="intervenant[]" value="value 1">
-                                  <label class="form-check-label" for="project[idInter1]">
-                                    Benjamin TOURMAN
+                                  <input class="form-check-input" type="checkbox" name="intervenant[]" value="<%= intervenant.id %>">
+                                  <label class="form-check-label">
+                                    <%= intervenant.firstName %>
+                                    <%= intervenant.surname %>
+                                    <div class="thumbs">
+                                        <img class="img-circle" src="<%= intervenant.avatar %>" width="35px" height="35px" align="">
+                                    </div>
                                   </label>
                                 </div>
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="intervenant[]" value="value 2">
-                                  <label class="form-check-label" for="project[idInter2]">
-                                     Stéphane BARTHON
-                                  </label>
-                                </div>
+                                <% }); %>   
                               </div>
                           </div>
 
@@ -86,10 +87,12 @@
     <script type="text/javascript">
         $(function () {
           $('#beginDate').datetimepicker({
-              locale: 'fr'
+              locale: 'fr',
+              format: 'YYYY-MM-DD hh:mm:ss'
           });
           $('#deadline').datetimepicker({
-              locale: 'fr'
+              locale: 'fr',
+              format: 'YYYY-MM-DD hh:mm:ss'
           });
         });
     </script>

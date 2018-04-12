@@ -10,8 +10,8 @@ module.exports = {
   attributes: {
     title: {type: 'string', required: true},
     description: {type: 'string', required: true},
-    beginDate: {type: 'string', columnType: 'datetime', required: true},
-    deadline: {type: 'string', columnType: 'datetime', required: true},
+    beginDate: {type: 'string', required: true},
+    deadline: {type: 'string', required: true},
     grade: {type: 'string', isIn: ['B1', 'B2', 'B3', 'I4', 'I5']},
     teams: {
       collection: 'Team',

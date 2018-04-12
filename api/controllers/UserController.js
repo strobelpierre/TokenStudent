@@ -58,14 +58,41 @@ module.exports = {
   },
 
   fakeUser: function (req, res) {
-    /**
-      * Gen student
-      */
     var users = []
     faker.locale = 'fr'
-    for (var i = 0; i < 500; i++) {
-      var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
+    /**
+    * Gen responsable
+    */
+    var responsable = {
+      surname: faker.name.lastName(),
+      firstName: faker.name.firstName(),
+      role: 'Responsable pédagogique',
+      email: 'john.doe@epsi.fr',
+      password: 'epsi1234',
+      avatar: faker.internet.avatar(),
+      grade: ''
+    }
+    /**
+    * Gen responsable
+    */
+    for (var i = 0; i < 10; i++) {
       var user = {
+        surname: faker.name.lastName(),
+        firstName: faker.name.firstName(),
+        role: 'Intervenant',
+        email: faker.internet.email(),
+        password: 'epsi1234',
+        avatar: faker.internet.avatar()
+      }
+      users.push(user)
+    }
+    /**
+    * Gen student
+    */
+    users.push(responsable)
+    for (i = 0; i < 500; i++) {
+      var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
+      user = {
         surname: faker.name.lastName(),
         firstName: faker.name.firstName(),
         role: 'Etudiant',
