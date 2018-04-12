@@ -8,6 +8,7 @@
 const sails = require('sails')
 const User = sails.models.user
 const Project = sails.models.project
+const Ticket = sails.models.ticket
 const util = require('util')
 const faker = require('faker')
 module.exports = {
@@ -67,7 +68,8 @@ module.exports = {
       project.intervenants.forEach(function (inter) {
         intervenants.push(inter)
       })
-      return res.view('pages/projetEtu', {user, project, intervenants})
+      var tickets = await Ticket.find({project: req.param('id')}).populateAll()
+      return res.view('pages/projetEtu', {user, project, intervenants, tickets})
     })
   },
   newProject: function (req, res) {
