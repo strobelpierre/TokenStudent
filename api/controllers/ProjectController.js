@@ -40,7 +40,20 @@ module.exports = {
       }
     })
   },
+  viewProject: function (req, res) {
+    if (!req.session.user) {
+      return res.redirect('/')
+    }
 
+    User.findOne({
+      id: req.session.user
+    }).decrypt().exec(async function afterFind (err, user) {
+      if (err) {
+        return res.serError(err)
+      }
+      return res.view('pages/projetEtu', {user})
+    })
+  },
   newProject: function (req, res) {
     if (!req.session.user) {
       return res.redirect('/')
