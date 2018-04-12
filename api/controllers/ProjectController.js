@@ -9,6 +9,7 @@ const sails = require('sails')
 const User = sails.models.user
 const Project = sails.models.project
 const util = require('util')
+const faker = require('faker')
 module.exports = {
 
   viewAllProjects: function (req, res) {
@@ -97,19 +98,44 @@ module.exports = {
       }
     })
   },
-  testproject: function (req, res) {
-    var project = {
-      title: 't',
-      description: 'tt',
-      beginDate: '2011-04-20 10:00:00',
-      deadline: '2011-04-20 10:00:00'
-    }
-    Project.create(project).exec(function aftercreate (err) {
-      if (err) {
-        sails.log.error(err)
+  genProject: function (req, res) {
+    /**
+     * Select * intervenant
+     */
+   
+      var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
+      var campus = ['Arras', 'Bordeaux', 'Brest', 'Grenoble', 'Lille', 'Lyon', 'Montpellier', 'Nantes', 'Paris']
+      var project = {
+        title: faker.commerce.productName(),
+        description: faker.company.catchPhrase(),
+        beginDate: faker.date.past(),
+        deadline: faker.date.future(),
+        grade: grade[Math.floor(Math.random() * grade.length)],
+        campus: campus[Math.floor(Math.random() * campus.length)],
+        intervenants:[]
       }
-      res.json(project)
-    })
+      User.find(
+        {
+          role: 'Intervenant',
+          campus: project.campus
+        }
+      ).limit(5).exec(function afterFind (err, Intevenants) {
+        if (err) {
+          res.json(err)
+        }
+        Intevenants.forEach(function(element) {
+          project.intervenants.push(element.id)
+          sails.log.debug(project)
+        })
+        Project.create(project).exec(function aftercreate(err, created) {
+          if (err) {
+            sails.log.error(err)
+            sails.log.debug(project)
+          }
+          
+        })
+      })
+   
   },
   createProject: function (req, res) {
     if (!req.session.user) {
