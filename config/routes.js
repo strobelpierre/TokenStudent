@@ -32,7 +32,7 @@ module.exports.routes = {
   'GET /projets': 'ProjectController.viewAllProjects',
   'GET /newProjet': 'ProjectController.newProject',
   'POST /newProjet': 'ProjectController.createProject',
-  'GET /project/genProject': 'ProjectController.testproject',
+  'GET /project/genProject': 'ProjectController.genProject',
   'GET /projet/:id': 'ProjectController.viewProject',
 
   'GET /user/genStudent': 'UserController.fakeUser',
