@@ -52,7 +52,6 @@ module.exports = {
       }
     })
   },
-
   viewProject: function (req, res) {
     if (!req.session.user) {
       return res.redirect('/')
