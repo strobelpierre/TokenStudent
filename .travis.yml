@@ -6,6 +6,7 @@ cache:
     - node_modules
 before_install:
   - npm prune
+  - node-pre-gyp install --fallback-to-build
 before_script: chmod 0777 ./node_modules/.bin/mocha
 notifications:
     slack: wksp-s2-epsi-oss-b3:MFi7kjnrnghncYqu58vRGTwE
