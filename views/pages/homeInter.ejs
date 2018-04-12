@@ -17,7 +17,7 @@
           <% projects.forEach(function(project) { %>
             <% if(project.grade === grade) { %>
             <!-- Tuile projet -->
-            <div class="col-md-4 col-sm-4 mb" onclick="window.location.href='#'" style="cursor: pointer">
+            <div class="col-md-4 col-sm-4 mb" onclick="window.location.href='/projet/<%= project.id %>'" style="cursor: pointer">
               <div class="grey-panel pn donut-chart">
                 <div class="grey-header">
                   <h5><%= project.title %></h5>

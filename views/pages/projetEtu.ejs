@@ -36,7 +36,7 @@
   									<h5>SUIVI DES JETONS</h5>
   								</div>
   								<div class="chart mt" style="font-size: 70px">
-  									00:45
+  									 <%= team.jetons %>
   								</div>
   								<p class="mt bottom">Temps-jeton disponible</p>
   							</div>
@@ -88,8 +88,10 @@
                         <div class="darkblue-header">
                           <h5>Question à <%= ticket.intervenant.firstName %> <%= ticket.intervenant.surname %></h5>
                         </div>
-                        <% if (ticket.status == 2){ %>
+                        <% if (ticket.status == 3){ %>
                           <span class="label label-success">Traitée</span>
+                        <% } else if (ticket.status == 2){ %>
+                          <span class="label label-info">En attente d'une réponse</span>
                         <% } else if (ticket.status == 1){ %>
                           <span class="label label-warning">En cours de réponse</span>
                         <% } else if (ticket.status == 0){ %>
@@ -98,9 +100,9 @@
                         <h1><i class="fa fa-question fa-2x"></i></h1>
                         <p>Question initilament posée le <%= ticket.message.dateEnvoi %></p>
                         <footer>
-                          <% if (ticket.status == 2){ %>
+                          <% if (ticket.status == 3) { %>
                           <div class="centered">
-                            <h5>00:15 temps-jetons utilisés</h5>
+                            <h5><%= ticket.jetonUtilises %> temps-jetons utilisés</h5>
                           </div>
                           <% }; %>
                         </footer>
@@ -115,8 +117,9 @@
         </div>
       </div>
       <%- include('rightsidebar'); %>
-      <%- include('footer'); %>
+
   </section>
+        <%- include('footer'); %>
   <script src="../js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="../js/jquery.dcjqaccordion.2.7.js"></script>
   <script src="../js/jquery.scrollTo.min.js"></script>
