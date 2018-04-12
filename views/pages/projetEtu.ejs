@@ -36,102 +36,79 @@
   									<h5>SUIVI DES JETONS</h5>
   								</div>
   								<div class="chart mt" style="font-size: 70px">
-  									00:45
+  									 <%= team.jetons %>
   								</div>
   								<p class="mt bottom">Temps-jeton disponible</p>
   							</div>
               </div>
 
-              <div class="col-lg-12 mt">
-                <div class="showback">
-        					<h4><i class="fa fa-angle-right"></i> DEMANDER DE L'AIDE</h4>
-                  <div class="form-group">
-                      <label class="col-sm-2 col-sm-2 control-label">Choisissez un intervenant :</label>
-                        <div class="col-sm-10">
-
-                          <ul class="list-group list-group-flush">
-                            <% intervenants.forEach(function(intervenant){ %>
-
+                  <div class="col-lg-12 mt">
+                    <div class="showback">
+        					    <h4><i class="fa fa-angle-right"></i> DEMANDER DE L'AIDE</h4>
+                      <form action="/newTicket"  method="POST">
+                        <div class="form-group">
+                          <label class="col-sm-2 col-sm-2 control-label">Choisissez un intervenant :</label>
+                          <div class="col-sm-10">
+                            <ul class="list-group list-group-flush">
+                              <% intervenants.forEach(function(intervenant){ %>
                                 <li class="list-group-item">
-
                                   <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="intervenant[]" value="<%= intervenant.id %>">
+                                    <input class="form-check-input" type="radio" name="ticket[intervenant]" value="<%= intervenant.id %>">
                                     <label class="form-check-label">
                                       <div>
                                         <img class="img-circle ml10" src="<%= intervenant.avatar %>" width="35px" height="35px"> <%= intervenant.firstName %> <%= intervenant.surname %>
                                       </div>
                                     </label>
                                   </div>
-
                                 </li>
-
-                          <% }); %>
-                          </ul>
-                      </div>
+                              <% }); %>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 col-sm-2 control-label" for="msg">Entrez votre message :</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" name="ticket[message]" rows="10" style="margin-bottom: 10px;"></textarea>
+                          </div>
+                        </div>
+                        <input type="hidden" name="ticket[team]" value="1">
+                        <input type="hidden" name="ticket[project]" value="<%= project.id %>">
+                        <button class="btn btn-theme btn-block" href="#" type="submit"><i class="fa fa-send left"></i>&nbsp; Envoyer le message</button>
+                      </form>
+          			    </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label" for="msg">Entrez votre message :</label>
-                    <div class="col-sm-10">
-                      <textarea class="form-control" id="msg" rows="10" style="margin-bottom: 10px;"></textarea>
-                    </div>
-                  </div>
-                  <button class="btn btn-theme btn-block" href="#" type="submit"><i class="fa fa-send left"></i>&nbsp; Envoyer le message</button>
-          			</div>
-              </div>
 
               <div class="col-lg-12 mt">
                 <div class="showback">
-                  <h4><i class="fa fa-angle-right"></i> UTILISATION DES JETONS</h4>
+                  <h4><i class="fa fa-angle-right"></i> HISTORIQUES DES QUESTIONS</h4>
                   <div class="row">
-
+                    <% tickets.forEach(function(ticket){ %>
                     <div class="col-md-4 mb">
                       <div class="darkblue-panel pn">
                         <div class="darkblue-header">
-                          <h5>Question à Benjamin TOURMAN</h5>
+                          <h5>Question à <%= ticket.intervenant.firstName %> <%= ticket.intervenant.surname %></h5>
                         </div>
-                        <span class="label label-success">Traitée</span>
+                        <% if (ticket.status == 3){ %>
+                          <span class="label label-success">Traitée</span>
+                        <% } else if (ticket.status == 2){ %>
+                          <span class="label label-info">En attente d'une réponse</span>
+                        <% } else if (ticket.status == 1){ %>
+                          <span class="label label-warning">En cours de réponse</span>
+                        <% } else if (ticket.status == 0){ %>
+                          <span class="label label-danger">Non traitée</span>
+                        <% }; %>
                         <h1><i class="fa fa-question fa-2x"></i></h1>
-                        <p>Question initilament posée le 02/04/2018</p>
+                        <p>Question initilament posée le <%= ticket.message.dateEnvoi %></p>
                         <footer>
+                          <% if (ticket.status == 3) { %>
                           <div class="centered">
-                            <h5>00:15 temps-jetons utilisés</h5>
+                            <h5><%= ticket.jetonUtilises %> temps-jetons utilisés</h5>
                           </div>
+                          <% }; %>
                         </footer>
                       </div>
                     </div>
-
-                    <div class="col-md-4 mb">
-                      <div class="darkblue-panel pn">
-                        <div class="darkblue-header">
-                          <h5>Question à Frédéric REINOLD</h5>
-                        </div>
-                        <span class="label label-warning">En cours de réponse</span>
-                        <h1><i class="fa fa-question fa-2x"></i></h1>
-                        <p>Question initilament posée le 26/03/2018</p>
-                        <footer>
-                          <div class="centered">
-                            <h5></h5>
-                          </div>
-                        </footer>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb">
-                      <div class="darkblue-panel pn">
-                        <div class="darkblue-header">
-                          <h5>Question à Mathias BRAUX</h5>
-                        </div>
-                        <span class="label label-danger">Non traitée</span>
-                        <h1><i class="fa fa-question fa-2x"></i></h1>
-                        <p>Question initilament posée le 09/04/2018</p>
-                        <footer>
-                          <div class="centered">
-                            <h5></h5>
-                          </div>
-                        </footer>
-                      </div>
-                    </div>
-
+                    <% }); %>
                   </div>
                 </div>
               </div>
@@ -140,8 +117,9 @@
         </div>
       </div>
       <%- include('rightsidebar'); %>
-      <%- include('footer'); %>
+
   </section>
+        <%- include('footer'); %>
   <script src="../js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="../js/jquery.dcjqaccordion.2.7.js"></script>
   <script src="../js/jquery.scrollTo.min.js"></script>
