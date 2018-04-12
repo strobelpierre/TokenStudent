@@ -37,7 +37,9 @@ module.exports.routes = {
 
   'GET /user/genStudent': 'UserController.fakeUser',
   'GET /rgpdok': 'UserController.rgpdValidation',
-  'GET /account': 'UserController.viewAccount'
+  'GET /account': 'UserController.viewAccount',
+
+  'POST /newTicket': 'TicketController.createTicket'
 
   /***************************************************************************
   *                                                                          *
