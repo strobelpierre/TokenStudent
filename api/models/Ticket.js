@@ -8,11 +8,12 @@
 module.exports = {
 
   attributes: {
-    message: { model: 'Message', required: true},
+    message: { model: 'Message', required: true },
     project: { model: 'Project', required: true },
-    intervenant: { model: 'User',  required: true },
-    team: { model: 'Team',  required: true },
-    status: { type: 'Integer', defaultsTo: 0 }
+    intervenant: { model: 'User', required: true },
+    team: { model: 'Team', required: true },
+    status: { type: 'Integer', defaultsTo: 0 },
+    jetonUtilises: { type: 'string' }
   }
 
 }

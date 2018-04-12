@@ -9,6 +9,7 @@ const sails = require('sails')
 const User = sails.models.user
 const Project = sails.models.project
 const Ticket = sails.models.ticket
+const Team = sails.models.team
 const util = require('util')
 const faker = require('faker')
 module.exports = {
@@ -69,7 +70,24 @@ module.exports = {
         intervenants.push(inter)
       })
       var tickets = await Ticket.find({project: req.param('id')}).populateAll()
-      return res.view('pages/projetEtu', {user, project, intervenants, tickets})
+      var team = await Team.findOne({id: 1}).populateAll()
+      var teams = await Team.find({project: req.param('id')}).populateAll()
+      var jetonsUtilises = '00:14'
+
+      switch (user.role) {
+        case 'Responsable pédagogique':
+          return res.view('pages/projetResp', {user, project, teams, jetonsUtilises})
+
+        case 'Etudiant':
+          return res.view('pages/projetEtu', {user, project, intervenants, tickets, team})
+
+        case 'Intervenant':
+
+          return res.view('pages/projetInter', {user, project, tickets, team, jetonsUtilises})
+
+        default:
+          return res.render('/')
+      }
     })
   },
   newProject: function (req, res) {

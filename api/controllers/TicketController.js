@@ -6,12 +6,8 @@
  */
 
 const sails = require('sails')
-const User = sails.models.user
 const Ticket = sails.models.ticket
-const Team = sails.models.team
-const Project = sails.models.project
 const Message = sails.models.message
-const util = require('util')
 
 module.exports = {
 
