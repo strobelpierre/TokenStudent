@@ -76,41 +76,27 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Intervenants pouvant apporter une aide</label>
                               <div class="col-sm-10">
-<<<<<<< e08fb40b430e390d24f5e5c83d5e21d6d55b090f
                                 <ul class="list-group list-group-flush">
+                                        <input class="form-control" type="text" id="search" placeholder="Chercher un intervenant">
                                   <% Intervenants.forEach(function(intervenant){ %>
 
-                                      <li class="list-group-item">
-
+                                     
+        
                                         <div class="form-check">
+                                                <li class="list-group-item">
                                           <input class="form-check-input" type="checkbox" name="intervenant[]" value="<%= intervenant.id %>">
                                           <label class="form-check-label">
                                             <div>
                                               <img class="img-circle ml10" src="<%= intervenant.avatar %>" width="35px" height="35px"> <%= intervenant.firstName %> <%= intervenant.surname %>
                                             </div>
                                           </label>
+                                        </li>
                                         </div>
 
-                                      </li>
+                                    
 
                                 <% }); %>
                                 </ul>
-=======
-                                <input class="form-control" type="text" id="search" placeholder="Chercher un intervenant">
-                                  <% Intervenants.forEach(function(intervenant){ %>
-                                
-                                <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" name="intervenant[]" value="<%= intervenant.id %>">
-                                  <label class="form-check-label checkbox-inline">
-                                    <%= intervenant.firstName %>
-                                    <%= intervenant.surname %>
-                                    <div class="thumbs">
-                                        <img class="img-circle" src="<%= intervenant.avatar %>" width="35px" height="35px" align="">
-                                    </div>
-                                  </label>
-                                </div>
-                                <% }); %>   
->>>>>>> fix/ProjectNew && Vue
                               </div>
                           </div>
 
