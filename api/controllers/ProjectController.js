@@ -62,12 +62,9 @@ module.exports = {
         return res.serError(err)
       }
       var project = await Project.find({id: req.param('id')})
-
       var intervenants = await User.find({role: 'Intervenant', pool: project.id})
-
       sails.log.debug(project)
       return res.view('pages/projetEtu', {user, project, intervenants})
-
     })
   },
   newProject: function (req, res) {
