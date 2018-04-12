@@ -1,0 +1,73 @@
+
+<%- include('header'); %>
+<%- include('sidebar', user); %>
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+        <div class="col-lg-9 main-chart">
+        	<h3><i class="fa fa-angle-right"></i> Détails du projet</h3>
+        	<div class="row mt">
+        		<div class="col-lg-12">
+
+              <div class="col-lg-6">
+                <div class="green-panel pn">
+                  <div class="green-header">
+                    <h5>IFROCÉAN</h5>
+                  </div>
+                  <div class="chart mt" style="font-size: 20px;width: 95%;">
+                    Ifrocéan est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.
+                  </div>
+                  <p class="mt bottom">Le projet prends fin le <b>24/05/2018 à 17h00</b></p>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="green-panel pn">
+  								<div class="green-header">
+  									<h5>SUIVI DES JETONS</h5>
+  								</div>
+  								<div class="chart mt" style="font-size: 70px">
+  									00:45
+  								</div>
+  								<p class="mt bottom">Temps-jeton disponible</p>
+  							</div>
+              </div>
+
+              <div class="col-lg-12 mt">
+                <div class="showback">
+        					<h4><i class="fa fa-angle-right"></i> DEMANDER DE L'AIDE</h4>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Choisissez un intervenant :</label>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="intervenant[]" value="value 1">
+                          <label class="form-check-label" for="project[idInter1]">
+                            Benjamin TOURMAN
+                          </label>
+                        </div>
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="intervenant[]" value="value 2">
+                          <label class="form-check-label" for="project[idInter2]">
+                             Stéphane BARTHON
+                          </label>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label" for="msg">Entrez votre message :</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" id="msg" rows="10" style="margin-bottom: 10px;"></textarea>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <button class="btn btn-theme btn-block" href="#" type="submit"><i class="fa fa-send left"></i>&nbsp; Envoyer le message</button>
+          			</div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      <%- include('rightsidebar'); %>
+      <%- include('footer'); %>
+  </section>
