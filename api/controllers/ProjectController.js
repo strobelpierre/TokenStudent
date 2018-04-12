@@ -61,9 +61,11 @@ module.exports = {
       if (err) {
         return res.serError(err)
       }
-      var project = await Project.find({id: req.param('id')})
-      var intervenants = await User.find({role: 'Intervenant', pool: project.id})
-      sails.log.debug(project)
+      var intervenants = []
+      var project = await Project.findOne({id: req.param('id')}).populateAll()
+      project.intervenants.forEach(function (inter) {
+        intervenants.push(inter)
+      })
       return res.view('pages/projetEtu', {user, project, intervenants})
     })
   },
