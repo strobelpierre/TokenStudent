@@ -26,15 +26,19 @@ module.exports.routes = {
   '/': 'PageController.home',
   'GET /login': { view: 'pages/userLogin' },
   'POST /login': 'UserController.login',
+
   'GET /logout': 'UserController.logout',
+
   'GET /projets': 'ProjectController.viewAllProjects',
   'GET /newProjet': 'ProjectController.newProject',
   'POST /newProjet': 'ProjectController.createProject',
+  'GET /project/genProject': 'ProjectController.testproject',
+  'GET /projet/:id': 'ProjectController.viewProject',
+
   'GET /user/genStudent': 'UserController.fakeUser',
   'GET /rgpdok': 'UserController.rgpdValidation',
-  'GET /account': 'UserController.viewAccount',
-  'GET /project/genProject': 'ProjectController.testproject'
-  'GET /projet': 'ProjectController.viewProject'
+  'GET /account': 'UserController.viewAccount'
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
