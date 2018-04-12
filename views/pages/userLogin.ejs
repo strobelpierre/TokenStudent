@@ -1,66 +1,118 @@
-
-      <!-- **********************************************************************************************************************************************************
+<!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
 
-	  <div id="login-page">
-        <div class="container">
+<div id="login-page">
+    <div class="container">
 
-            <form class="form-login" action="/login" method="POST">
-              <h2 class="form-login-heading">Connectez-vous</h2>
-              <div class="login-wrap">
-                    <% flash.get('error').forEach(function (message) { %>
-                        <div style="color:red;">
-                          <%= message %>
-                        </div>
+        <form class="form-login" id="formLogin" name="formLogin" action="/login" method="POST">
+            <h2 class="form-login-heading">Connectez-vous</h2>
+            <div class="login-wrap">
+                <% flash.get('errorRecovery').forEach(function (message) { %>
+                    <div style="color:red;">
+                        <%= message %>
+                    </div>
                     <% }) %>
-                  <input type="email" name="user[email]" id="user[email]" class="form-control" placeholder="Identifiant" autofocus>
-                  <br>
-                  <input type="password" name="user[password]" id="user[password]" class="form-control" placeholder="Mot de passe">
-                  <label class="checkbox">
-                      <span class="pull-right">
-                          <a data-toggle="modal" href="login.html#myModal"> Mot de passe oublié ?</a>
-
-                      </span>
-                  </label>
-                  <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SE CONNECTER</button>
-
-              </div>
-
-                <!-- Modal -->
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Mot de passe oublié ?</h4>
+                        <% flash.get('infoRecovery').forEach(function (message) { %>
+                            <div style="color:green;">
+                                <%= message %>
                             </div>
-                            <div class="modal-body">
-                                <p>Entrez votre email ci-dessous pour réinitialiser votre mot de passe.</p>
-                                <input type="text" name="user[recoveryMail]" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                            <% }) %>
+                                <% flash.get('error').forEach(function (message) { %>
+                                    <div style="color:red;">
+                                        <%= message %>
+                                    </div>
+                                    <% }) %>
+                                        <% flash.get('info').forEach(function (message) { %>
+                                            <div style="color:green;">
+                                                <%= message %>
+                                            </div>
+                                            <% }) %>
+                                                <input type="email" name="user[email]" id="user[email]" class="form-control" placeholder="Identifiant" autofocus>
+                                                <br>
+                                                <input type="password" name="user[password]" id="user[password]" class="form-control" placeholder="Mot de passe">
+                                                <label class="checkbox">
+                                                    <span class="pull-right">
+                                                        <a data-toggle="modal" href="login.html#myModal"> Mot de passe oublié ?</a>
 
-                            </div>
-                            <div class="modal-footer">
-                                <button data-dismiss="modal" class="btn btn-default" type="button">Annuler</button>
-                                <button class="btn btn-theme" type="submit">Envoyer</button>
-                            </div>
+                                                    </span>
+                                                </label>
+                                                <button class="btn btn-theme btn-block" href="index.html" type="submit">
+                                                    <i class="fa fa-lock"></i> SE CONNECTER</button>
+
+            </div>
+        </form>
+        <form class="form-login" id="formRecovery" name="formRecovery" action="/reset" method="POST">
+            <!-- Modal -->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Mot de passe oublié ?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Entrez votre email ci-dessous pour réinitialiser votre mot de passe.</p>
+                            <input type="text" name="user[recoveryMail]" id="user[recoveryMail]" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-default" type="button">Annuler</button>
+                            <button class="btn btn-theme" type="submit">Envoyer</button>
                         </div>
                     </div>
                 </div>
-                <!-- modal -->
-
-            </form>
-
-        </div>
+            </div>
+            <!-- modal -->
+        </form>
     </div>
+</div>
 
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
 
-  <!--BACKSTRETCH-->
-  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-  <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
-  <script>
-      $.backstretch("img/help-bg.jpg", {speed: 500});
-  </script>
+<!--BACKSTRETCH-->
+<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+<script>
+    $.backstretch("img/help-bg.jpg", { speed: 500 });
+</script>
+<script>
+    $('#formLogin').validate({ // initialize the plugin
+        rules: {
+            'user[email]': {
+                required: true,
+                email: true
+            },
+            'user[password]': {
+                required: true,
+                minlength: 3
+            }
+        },
+        messages: {
+            'user[email]': {
+                required: 'Veuillez préciser votre email',
+                email: 'Adresse mail incorrecte'
+            },
+            'user[password]': {
+                required: 'Veuillez préciser votre nouveau mot de passe',
+                minlength: 'Votre nouveau mot de passe doit contenir au moins 3 caractères'
+            }
+        }
+    })
+    $('#formRecovery').validate({ // initialize the plugin
+        rules: {
+            'user[recoveryMail]': {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            'user[recoveryMail]': {
+                required: 'Veuillez préciser votre email',
+                email: 'Adresse mail incorrecte'
+            }
+        }
+    })
+</script>

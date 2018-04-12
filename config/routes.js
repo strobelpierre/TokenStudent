@@ -39,7 +39,10 @@ module.exports.routes = {
   'GET /rgpdok': 'UserController.rgpdValidation',
   'GET /account': 'UserController.viewAccount',
 
-  'POST /newTicket': 'TicketController.createTicket'
+  'POST /newTicket': 'TicketController.createTicket',
+  'POST /reset': 'PasswordRecoveryController.passwordRecovery',
+  'GET /reset/:hash': 'ResetPasswordController.checkHash',
+  'POST /resetPassword': 'ResetPasswordController.resetPassword'
 
   /***************************************************************************
   *                                                                          *

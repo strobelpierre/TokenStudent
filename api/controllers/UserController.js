@@ -33,7 +33,6 @@ module.exports = {
       return res.redirect('/')
     })
   },
-
   logout: function (req, res) {
     req.session.destroy()
     return res.redirect('/login')
@@ -51,7 +50,7 @@ module.exports = {
         return res.serError(err)
       }
 
-      await User.update({id: req.session.user}).set({rgpd: '1'})
+      await User.update({ id: req.session.user }).set({ rgpd: '1' })
 
       return res.redirect('/')
     })
@@ -68,7 +67,7 @@ module.exports = {
       if (err) {
         return res.serError(err)
       }
-      return res.view('pages/account', {user})
+      return res.view('pages/account', { user })
     })
   },
 
