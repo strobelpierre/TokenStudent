@@ -8,6 +8,7 @@
 module.exports = {
 
   attributes: {
+    jetons: { type: 'string', required: true },
     users: {
       collection: 'user',
       via: 'teams'
