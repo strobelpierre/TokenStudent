@@ -73,6 +73,8 @@ module.exports = {
   },
 
   fakeUser: function (req, res) {
+    var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
+    var campus = ['Arras', 'Bordeaux', 'Brest', 'Grenoble', 'Lille', 'Lyon', 'Montpellier', 'Nantes', 'Paris']
     var users = []
     faker.locale = 'fr'
     /**
@@ -85,19 +87,21 @@ module.exports = {
       email: 'john.doe@epsi.fr',
       password: 'epsi1234',
       avatar: faker.internet.avatar(),
-      grade: ''
+      grade: '',
+      campus: campus[Math.floor(Math.random() * campus.length)]
     }
     /**
     * Gen responsable
     */
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 300; i++) {
       var user = {
         surname: faker.name.lastName(),
         firstName: faker.name.firstName(),
         role: 'Intervenant',
         email: faker.internet.email(),
         password: 'epsi1234',
-        avatar: faker.internet.avatar()
+        avatar: faker.internet.avatar(),
+        campus: campus[Math.floor(Math.random() * campus.length)]
       }
       users.push(user)
     }
@@ -105,8 +109,7 @@ module.exports = {
     * Gen student
     */
     users.push(responsable)
-    for (i = 0; i < 500; i++) {
-      var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
+    for (i = 0; i < 5000; i++) {
       user = {
         surname: faker.name.lastName(),
         firstName: faker.name.firstName(),
@@ -114,7 +117,8 @@ module.exports = {
         email: faker.internet.email(),
         password: 'epsi1234',
         avatar: faker.internet.avatar(),
-        grade: grade[Math.floor(Math.random() * grade.length)]
+        grade: grade[Math.floor(Math.random() * grade.length)],
+        campus: campus[Math.floor(Math.random() * campus.length)]
       }
       users.push(user)
     }

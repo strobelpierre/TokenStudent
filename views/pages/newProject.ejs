@@ -45,6 +45,23 @@
                               </div>
                           </div>
                           <div class="form-group">
+                            <label class="col-sm-2 control-label">Campus concernée par le projet</label>
+                            <div class="col-sm-10">
+                              <select class="form-control" name="project[campus]">
+
+                                <option value="Arras">Arras</option>
+                                <option value="Bordeaux">Bordeaux</option>
+                                <option value="Brest">Brest</option>
+                                <option value="Grenoble">Grenoble</option>
+                                <option value="Lille">Lille</option>
+                                <option value="Lyon">Lyon</option>
+                                <option value="Montpellier">Montpellier</option>
+                                <option value="Nantes">Nantes</option>
+                                <option value="Paris">Paris</option>
+                              </select>
+                            </div>
+                        </div>
+                          <div class="form-group">
                               <label class="col-sm-2 control-label">Classe concernée par le projet</label>
                               <div class="col-sm-10">
                                 <select class="form-control" name="project[classe]">
@@ -59,6 +76,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Intervenants pouvant apporter une aide</label>
                               <div class="col-sm-10">
+<<<<<<< e08fb40b430e390d24f5e5c83d5e21d6d55b090f
                                 <ul class="list-group list-group-flush">
                                   <% Intervenants.forEach(function(intervenant){ %>
 
@@ -77,6 +95,22 @@
 
                                 <% }); %>
                                 </ul>
+=======
+                                <input class="form-control" type="text" id="search" placeholder="Chercher un intervenant">
+                                  <% Intervenants.forEach(function(intervenant){ %>
+                                
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="intervenant[]" value="<%= intervenant.id %>">
+                                  <label class="form-check-label checkbox-inline">
+                                    <%= intervenant.firstName %>
+                                    <%= intervenant.surname %>
+                                    <div class="thumbs">
+                                        <img class="img-circle" src="<%= intervenant.avatar %>" width="35px" height="35px" align="">
+                                    </div>
+                                  </label>
+                                </div>
+                                <% }); %>   
+>>>>>>> fix/ProjectNew && Vue
                               </div>
                           </div>
 
@@ -103,4 +137,26 @@
     </script>
   </section>
 </section>
+<script>
+$(".form-check").hide()
+$("#search").on("change paste keyup select", function() {
+    $(".form-check").hide()
+    var text = $("#search").val()
+    console.log(text)
+    $( ".form-check:contains("+text+")" ).show();
+    if(text === ""){
+      $(".form-check").hide()
+      $(".form-check input:checkbox:checked").closest('.form-check').show()
+    }
+});
+$('.form-check input:checkbox').click(function(){
+    var text = $("#search").val()
+    if(text === ""){
+      $(".form-check").hide()
+      $(".form-check input:checkbox:checked").closest('.form-check').show()
+    }
+})
+
+</script>
+
 <%- include('footer'); %>

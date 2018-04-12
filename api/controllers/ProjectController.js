@@ -132,7 +132,8 @@ module.exports = {
           beginDate: req.body.project.beginDate,
           deadline: req.body.project.deadline,
           grade: req.body.project.classe,
-          intervenants: req.body.intervenant
+          intervenants: req.body.intervenant,
+          campus: req.body.project.campus
         }
         var createdProject = await Project.create(project)
 
