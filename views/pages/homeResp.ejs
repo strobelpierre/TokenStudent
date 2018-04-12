@@ -6,421 +6,50 @@
   <section class="wrapper">
     <div class="row">
       <div class="col-lg-9 main-chart">
+        <div class="row mt">
 
-            <div class="row mt">
-              <div class="col-md-12 col-sm-12">
-                <h2>B1</h2>
-                <hr>
-              </div>
+          <% ['B1', 'B2', 'B3', 'I4', 'I5'].forEach(function(grade) { %>
+          <div class="col-md-12 col-sm-12">
+            <h2><%= grade %></h2>
+            <hr>
+          </div>
 
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
+          <% projects.forEach(function(project) { %>
+            <% if(project.grade === grade) { %>
+            <!-- Tuile projet -->
+            <div class="col-md-4 col-sm-4 mb" onclick="window.location.href='#'" style="cursor: pointer">
+              <div class="grey-panel pn donut-chart">
+                <div class="grey-header">
+                  <h5><%= project.title %></h5>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                  <p><%= project.description %></p>
+                </div>
+                <div class="row bottom">
+                  <div class="col-md-6">
+                    <p>Date de début</p>
+                    <p><%= project.beginDate %></p>
                   </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
+                  <div class="col-md-6">
+                    <div class="col-md-6 centered edit">
+                      <i class="fa fa-pencil" ></i>
                     </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
+                    <div class="col-md-6 centered edit">
+                      <i class="fa fa-trash-o"></i>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <div class="col-md-12 col-sm-12">
-                <h2>B2</h2>
-                <hr>
-              </div>
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <div class="col-md-12 col-sm-12">
-                <h2>B3</h2>
-                <hr>
-              </div>
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <div class="col-md-12 col-sm-12">
-                <h2>I4</h2>
-                <hr>
-              </div>
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <div class="col-md-12 col-sm-12">
-                <h2>I5</h2>
-                <hr>
-              </div>
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-              <!-- Tuile projet -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="white-panel pn donut-chart">
-                  <div class="white-header">
-                    <h5>IFROCÉAN</h5>
-                  </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <p><b>Ifrocéan</b> est une plateforme web permettant d'assurer le suivi de la reproduction de différentes espèces marines sur les plages bretonnes.</p>
-                  </div>
-                  <div class="row bottom">
-                    <div class="col-md-6">
-                      <p>Date de début</p>
-                      <p>02/05/2017</p>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-pencil" ></i>
-                      </div>
-                      <div class="col-md-6 centered edit">
-                        <i class="fa fa-trash-o"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Fin tuile Projet -->
-
-          </div><!-- /row -->
-
-
-        </div><!-- /col-lg-9 END SECTION MIDDLE -->
-        <div class="col-lg-3 main-chart mt45 centered">
-            <button type="button" class="btn btn-round btn-theme btn-lg" onclick="window.location.href='/newProjet'"><i class="fa fa-plus left"></i>&nbsp; Créer un projet</button>
-        </div>
-
-
+            </div>
+            <!-- Fin tuile Projet -->
+            <% } %>
+          <% }); %>
+          <% }); %>
+        </div><!-- /row -->
+      </div><!-- /col-lg-9 END SECTION MIDDLE -->
+      <div class="col-lg-3 main-chart mt45 centered">
+        <button type="button" class="btn btn-round btn-theme btn-lg" onclick="window.location.href='/newProjet'"><i class="fa fa-plus left"></i>&nbsp; Créer un projet</button>
+      </div>
     </div><!-- /row -->
   </section>
 </section>
