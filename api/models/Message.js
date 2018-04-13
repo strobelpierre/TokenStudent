@@ -14,7 +14,8 @@ module.exports = {
     dateEnvoi: { type: 'string', required: true },
     dateLecture: { type: 'string' },
     dateReponse: { type: 'string' },
-    reponse: { model: 'Message' }
+    reponse: { model: 'Message' },
+    lu: {type: 'boolean', defaultsTo: false}
   }
 
 }
