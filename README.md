@@ -13,6 +13,7 @@ Development of an internal project management and speaker platform for students
 
  - Clone git repository `https://github.com/Ivachko/TokenStudent.git`
  - Assemble the project `npm install`
+ - Create a mysql user: `tokenstudent` with password `tokenstudent`
  - Launch the server `sails lift`
 
 As simple as that !
