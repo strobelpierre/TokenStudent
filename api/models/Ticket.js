@@ -12,7 +12,7 @@ module.exports = {
     project: { model: 'Project', required: true },
     intervenant: { model: 'User', required: true },
     team: { model: 'Team', required: true },
-    status: { type: 'Integer', defaultsTo: 0 },
+    status: { type: 'number', defaultsTo: 0 },
     jetonUtilises: { type: 'string' }
   }
 
