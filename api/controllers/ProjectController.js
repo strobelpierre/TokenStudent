@@ -122,7 +122,6 @@ module.exports = {
     /**
      * Select * intervenant
      */
-
     var grade = ['B1', 'B2', 'B3', 'I4', 'I5']
     var campus = ['Arras', 'Bordeaux', 'Brest', 'Grenoble', 'Lille', 'Lyon', 'Montpellier', 'Nantes', 'Paris']
     var project = {
@@ -150,10 +149,11 @@ module.exports = {
       Project.create(project).exec(function aftercreate (err, created) {
         if (err) {
           sails.log.error(err)
-          sails.log.debug(project)
         }
+        sails.log.debug(project)
       })
     })
+    res.json(project)
   },
   createProject: function (req, res) {
     if (!req.session.user) {
